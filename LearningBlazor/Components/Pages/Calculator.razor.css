@@ -1,0 +1,51 @@
+﻿.center-container {
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    width: 650px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.center-container:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+h3 {
+    text-align: center;
+}
+
+.container-fluid {
+    padding: 3rem;
+}
+
+p {
+    display: inline;
+    font-size: 1.5rem;
+}
+
+label {
+    padding-right: 1rem;
+    font-size: 1.5rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.selectWrapper{
+    border-radius:36px;
+    display:inline-block;
+    overflow:hidden;
+    background:#cccccc;
+    border:2px solid gray;
+    vertical-align: middle;
+}
+
+.selectBox{
+    width:140px;
+    height:40px;
+    border:0;
+    border-radius: 36px;
+    outline:none;
+    text-align: center;
+}

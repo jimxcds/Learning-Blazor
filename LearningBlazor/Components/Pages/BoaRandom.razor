@@ -1,0 +1,31 @@
+﻿@page "/Boa"
+@rendermode InteractiveServer
+
+<PageTitle>Boa Random</PageTitle>
+
+<h3>boaRandom</h3>
+
+<InputNumber @bind-Value="_count"/>
+<InputText @bind-Value="_wordToRepeat"/>
+<button type="button" @onclick="DisplayAmount">Display</button>
+
+<p>Output: @_output</p>
+
+
+@code {
+    private decimal _count = 0;
+    private string _wordToRepeat = "";
+    string _output = "";
+    private void DisplayAmount()
+    {
+        _output = "";
+        for (decimal countIndex = 0; countIndex < _count; countIndex++)
+        {
+            _output += " " + (countIndex + 1) + ".";
+            _output += _wordToRepeat;
+        }
+
+        _count = 0;
+        _wordToRepeat = "";
+    }
+}

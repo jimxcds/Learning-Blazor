@@ -1,0 +1,81 @@
+﻿@page "/Calculator"
+@rendermode InteractiveServer
+@inject ILogger<Calculator> CalLogger
+
+<PageTitle>Calculator</PageTitle>
+
+<div class="container-fluid">
+    <div class="center-container container">
+        <div class="separating-container">
+            <h3>Calculator</h3>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="separating-container">
+                <input type="number" @onkeydown="KeyboardEvenHandler" @bind="@_sum1"/>
+                <p>@_selectedOperator</p>
+                <input type="number" @onkeydown="KeyboardEvenHandler" @bind="@_sum2"/>
+                <p>= @_answer</p>
+            </div>
+
+            <div class="separating-container">
+                    <label @for="operators">Choose an Operator:</label>
+                    <div class="selectWrapper">
+                        <select class="selectBox" id="operators" name="operators" @bind="_selectedOperator">
+                            <option value="+">Addition</option>
+                            <option value="-">Subtraction</option>
+                            <option value="×">Multiplication</option>
+                            <option value="÷">Division</option>
+                        </select>
+                    </div>
+            </div>
+
+            <div class="separating-container">
+                <button @onclick="CompleteOperation">Calculate</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private decimal _sum1;
+    private decimal _sum2;
+    private decimal _answer;
+    private string _selectedOperator = "";
+
+    private void KeyboardEvenHandler(KeyboardEventArgs args)
+    {
+        if (args.Code == "Enter" || args.Code == "NumpadEnter")
+        {
+            CompleteOperation();
+        }
+    }
+    
+    private void CompleteOperation()
+    {
+        try
+        {
+            switch (_selectedOperator)
+            {
+                case "+":
+                    _answer = _sum1 + _sum2;
+                    break;
+                case "-":
+                    _answer = _sum1 - _sum2;
+                    break;
+                case "×":
+                    _answer = _sum1 * _sum2;
+                    break;
+                case "÷":
+                    _answer = _sum1 / _sum2;
+                    break;
+            }
+        }
+        catch (Exception mathError)
+        {
+            _answer = 0;
+            CalLogger.LogError(mathError.ToString());
+        }
+    }
+}

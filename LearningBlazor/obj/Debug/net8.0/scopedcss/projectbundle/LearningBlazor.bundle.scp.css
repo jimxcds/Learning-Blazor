@@ -1,0 +1,257 @@
+/* _content/LearningBlazor/Components/Layout/MainLayout.razor.rz.scp.css */
+#blazor-error-ui[b-tympf66vuy] {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+#blazor-error-ui .dismiss[b-tympf66vuy] {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+}
+
+.nav-links-container[b-tympf66vuy]{
+    
+}
+/* _content/LearningBlazor/Components/Pages/Calculator.razor.rz.scp.css */
+.center-container[b-n6gkl1ep8m] {
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    width: 650px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.center-container:hover[b-n6gkl1ep8m] {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+h3[b-n6gkl1ep8m] {
+    text-align: center;
+}
+
+.container-fluid[b-n6gkl1ep8m] {
+    padding: 3rem;
+}
+
+p[b-n6gkl1ep8m] {
+    display: inline;
+    font-size: 1.5rem;
+}
+
+label[b-n6gkl1ep8m] {
+    padding-right: 1rem;
+    font-size: 1.5rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.selectWrapper[b-n6gkl1ep8m]{
+    border-radius:36px;
+    display:inline-block;
+    overflow:hidden;
+    background:#cccccc;
+    border:2px solid gray;
+    vertical-align: middle;
+}
+
+.selectBox[b-n6gkl1ep8m]{
+    width:140px;
+    height:40px;
+    border:0;
+    border-radius: 36px;
+    outline:none;
+    text-align: center;
+}
+/* _content/LearningBlazor/Components/Pages/Counter.razor.rz.scp.css */
+.big-red-button[b-dtit765ksb] {
+    width: 20rem;
+    height: auto;
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    transition: filter 250ms;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.shadow[b-dtit765ksb] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110%;
+    border-radius: 50%;
+    background: hsl(0deg 0% 0% / 0.25);
+    will-change: transform;
+    transform: translateY(2px);
+    transition: transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+}
+
+.edge[b-dtit765ksb] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110%;
+    border-radius: 50%;
+    background: linear-gradient(
+            to left,
+            hsl(340deg 100% 16%) 0%,
+            hsl(340deg 100% 32%) 8%,
+            hsl(340deg 100% 32%) 92%,
+            hsl(340deg 100% 16%) 100%
+    );
+}
+
+.front[b-dtit765ksb] {
+    display: block;
+    position: relative;
+    border-radius: 50%;
+    font-size: 10rem;
+    color: white;
+    background: hsl(345deg 100% 47%);
+    will-change: transform;
+    transform: translateY(-4px);
+    transition: transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+}
+
+.big-red-button:hover[b-dtit765ksb] {
+    filter: brightness(110%);
+}
+
+.big-red-button:hover .front[b-dtit765ksb] {
+    transform: translateY(-6px);
+    transition: transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.big-red-button:active .front[b-dtit765ksb] {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+}
+
+.big-red-button:hover .shadow[b-dtit765ksb] {
+    transform: translateY(4px);
+    transition: transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.big-red-button:active .shadow[b-dtit765ksb] {
+    transform: translateY(1px);
+    transition: transform 34ms;
+}
+
+.big-red-button:focus:not(:focus-visible)[b-dtit765ksb] {
+    outline: none;
+}
+
+.button-container[b-dtit765ksb] {
+    padding-bottom: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.count[b-dtit765ksb] {
+    font-size: 4.5rem;
+}
+
+.saved[b-dtit765ksb] {
+    color: green;
+}
+
+.unsaved[b-dtit765ksb] {
+    color: gray;
+}
+
+.error[b-dtit765ksb] {
+    color: darkred;
+}
+
+.check[b-dtit765ksb] {
+    min-width: 3rem;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    width: 20rem;
+    text-align: left;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 1rem;
+    background-color: #2B3246;
+    cursor:pointer;
+    box-shadow:  0 0 14px #000000;
+    color: #ffffff;
+    transition: 0.5s;
+}
+
+.check:hover[b-dtit765ksb]{
+    box-shadow:  0 0 25px #000000;
+    transition: 0.5s;
+}
+
+.notificationTitle[b-dtit765ksb] {
+    font-size: large;
+    font-weight: bolder;
+    display: block;
+}
+
+.notificationDesc[b-dtit765ksb] {
+    display: block;
+    font-weight: bold;
+}
+
+.notification-container[b-dtit765ksb] {
+    padding: 1rem;
+    min-width: 3rem;
+}
+
+.fadeInClass[b-dtit765ksb] {
+    animation: fadeIn-b-dtit765ksb 1s;
+    opacity: 1;
+}
+
+.fadeOutClass[b-dtit765ksb] {
+    animation: fadeOut-b-dtit765ksb 1s;
+    opacity: 0;
+}
+
+@keyframes fadeIn-b-dtit765ksb {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes fadeOut-b-dtit765ksb {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+.col-sm-4[b-dtit765ksb] {
+    
+}
+/* _content/LearningBlazor/Components/Pages/MagicEightBall.razor.rz.scp.css */
+.coolH3[b-d2fqj8rws4]{
+    font-style: italic;
+}

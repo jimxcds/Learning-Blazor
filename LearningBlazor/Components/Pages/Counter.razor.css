@@ -1,0 +1,177 @@
+﻿.big-red-button {
+    width: 20rem;
+    height: auto;
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    transition: filter 250ms;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110%;
+    border-radius: 50%;
+    background: hsl(0deg 0% 0% / 0.25);
+    will-change: transform;
+    transform: translateY(2px);
+    transition: transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+}
+
+.edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110%;
+    border-radius: 50%;
+    background: linear-gradient(
+            to left,
+            hsl(340deg 100% 16%) 0%,
+            hsl(340deg 100% 32%) 8%,
+            hsl(340deg 100% 32%) 92%,
+            hsl(340deg 100% 16%) 100%
+    );
+}
+
+.front {
+    display: block;
+    position: relative;
+    border-radius: 50%;
+    font-size: 10rem;
+    color: white;
+    background: hsl(345deg 100% 47%);
+    will-change: transform;
+    transform: translateY(-4px);
+    transition: transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+}
+
+.big-red-button:hover {
+    filter: brightness(110%);
+}
+
+.big-red-button:hover .front {
+    transform: translateY(-6px);
+    transition: transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.big-red-button:active .front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+}
+
+.big-red-button:hover .shadow {
+    transform: translateY(4px);
+    transition: transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.big-red-button:active .shadow {
+    transform: translateY(1px);
+    transition: transform 34ms;
+}
+
+.big-red-button:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.button-container {
+    padding-bottom: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.count {
+    font-size: 4.5rem;
+}
+
+.saved {
+    color: green;
+}
+
+.unsaved {
+    color: gray;
+}
+
+.error {
+    color: darkred;
+}
+
+.check {
+    min-width: 3rem;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    width: 20rem;
+    text-align: left;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 1rem;
+    background-color: #2B3246;
+    cursor:pointer;
+    box-shadow:  0 0 14px #000000;
+    color: #ffffff;
+    transition: 0.5s;
+}
+
+.check:hover{
+    box-shadow:  0 0 25px #000000;
+    transition: 0.5s;
+}
+
+.notificationTitle {
+    font-size: large;
+    font-weight: bolder;
+    display: block;
+}
+
+.notificationDesc {
+    display: block;
+    font-weight: bold;
+}
+
+.notification-container {
+    padding: 1rem;
+    min-width: 3rem;
+}
+
+.fadeInClass {
+    animation: fadeIn 1s;
+    opacity: 1;
+}
+
+.fadeOutClass {
+    animation: fadeOut 1s;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+.col-sm-4 {
+    
+}

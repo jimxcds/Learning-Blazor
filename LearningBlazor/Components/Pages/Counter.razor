@@ -1,0 +1,263 @@
+﻿@page "/Counter"
+@using LearningBlazor.Models
+@rendermode InteractiveServer
+
+<PageTitle>Counter</PageTitle>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4">
+            
+        </div>
+        <div class="col-sm-4">
+            <div class="container-fluid basic-container">
+                <div class="button-container">
+                    <h2>Counter</h2>
+                    <p class="count">@_counter</p>
+                    <button class="big-red-button" tabindex="-1" @onclick="IncreaseCounter">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front text"> + </span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="fluid-container basic-container">
+                <EditForm Model="@NewCounter" OnValidSubmit="SaveCount">
+                    <label>ID:</label>
+                    <InputNumber @bind-Value="_id"/>
+                    <ValidationMessage For="@(() => NewCounter.Id)"/>
+                    <button type="button" @onclick="LoadCount">Load</button>
+                    <button type="button" @onclick="SaveCount">Save</button>
+
+                    @if (_loadState == LoadState.Saved && _counter != _savedCount || _id != _savedId)
+                    {
+                        _loadState = LoadState.Unsaved;
+                    }
+
+                    @switch (_loadState)
+                    {
+                        case LoadState.Unsaved:
+                            <p class="unsaved">Unsaved!</p>
+                            break;
+                        case LoadState.Loading:
+                            <p>Loading...</p>
+                            break;
+                        case LoadState.Saved:
+                            <p class="saved">Saved! Your ID: @_id</p>
+                            break;
+                        case LoadState.Error:
+                            <p class="error">Error Occured: @_errorMessage</p>
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                </EditForm>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            @for (var index = 0; index < _notifications.Count; index++)
+            {
+                var notification = _notifications[index];
+                <div class="container notification-container @_notifications[index].StyleClass">
+                    <div class="check">
+                        <i class="far fa-check-circle color"></i> &nbsp; &nbsp;
+                        <p class="notificationTitle">@notification.NotificationTitle</p>
+                        <p class="notificationDesc">@notification.NotificationDescription</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@inject Data.AppDbContext DbContext;
+
+@code
+{
+    private enum LoadState
+    {
+        Unsaved,
+        Loading,
+        Saved,
+        Error,
+    }
+
+    private LoadState _loadState;
+    private int _counter;
+    private int _savedCount;
+    private int _id;
+    private int _savedId;
+    private string _errorMessage = "";
+    private readonly Random _rand = new();
+
+    private int _everyTen;
+    private readonly string[] _notificationQuotes =
+    {
+        "Your limitation—it’s only your imagination.",
+        "Push yourself, because no one else is going to do it for you.",
+        "Sometimes later becomes never. Do it now.",
+        "Great things never come from comfort zones.",
+        "To live a creative life, we must lose our fear of being wrong.",
+        "Dream it. Wish it. Do it.",
+        "If you are not willing to risk the usual you will have to settle for the ordinary.",
+        "Trust because you are willing to accept the risk, not because it's safe or certain.",
+        "Take up one idea. Make that one idea your life--think of it, dream of it, live on that idea. Let the brain, muscles, nerves, every part of your body, be full of that idea, and just leave every other idea alone. This is the way to success.",
+        "Success doesn’t just find you. You have to go out and get it.",
+        "The harder you work for something, the greater you’ll feel when you achieve it.",
+        "Don’t stop when you’re tired. Stop when you’re done.",
+        "Wake up with determination. Go to bed with satisfaction.",
+        "Do something today that your future self will thank you for.",
+        "Little things make big days.",
+        "It’s going to be hard, but hard does not mean impossible.",
+        "Don’t wait for opportunity. Create it.",
+        "Sometimes we’re tested not to show our weaknesses, but to discover our strengths.",
+        "Dream it. Believe it. Build it.",
+        "Look up at the stars and not down at your feet. Try to make sense of what you see, and wonder about what makes the universe exist. Be curious."
+    };
+
+    private void IncreaseCounter()
+    {
+        //RemoveOldNotifications();
+        FadeOutOldNotifications();
+        _everyTen++;
+        if (_everyTen >= 10)
+        {
+            _everyTen = 0;
+            New10ClickNotification();
+        }
+        _counter++;
+    }
+
+    public Counters NewCounter = new Counters();
+    
+    private async Task SaveCount()
+    {
+        
+        _loadState = LoadState.Loading;
+        
+        if (!PreliminaryChecks()) {return;}
+        
+        try
+        {
+            _savedCount = _counter;
+            _savedId = _id;
+            var findExistingCounter = await DbContext.Counters.FindAsync(_id);
+            if (findExistingCounter != null)
+            {
+                findExistingCounter.CurrantCount = _counter;
+            }
+            else
+            {
+                NewCounter.CurrantCount = _counter;
+                DbContext.Counters.Add(NewCounter);
+                await DbContext.SaveChangesAsync();
+                _id = NewCounter.Id;
+                NewCounter = new Counters();
+            }
+
+            _savedId = _id;
+            
+            await DbContext.SaveChangesAsync();
+            _loadState = LoadState.Saved;
+        }
+        catch (Exception e)
+        {
+            _loadState = LoadState.Error;
+            _errorMessage = e.ToString();
+        }
+    }
+
+    private async Task LoadCount()
+    {
+        _loadState = LoadState.Loading;
+        
+        if (!PreliminaryChecks()) {return;}
+        
+        try
+        {
+            _savedCount = _counter;
+            _savedId = _id;
+            var findExistingCounter = await DbContext.Counters.FindAsync(_id);
+            if (findExistingCounter != null)
+            {
+                _counter = findExistingCounter.CurrantCount;
+                await DbContext.SaveChangesAsync();
+                _loadState = LoadState.Saved;
+            }
+            else
+            {
+                _loadState = LoadState.Error;
+                _errorMessage = "Invalid ID";
+                await DbContext.SaveChangesAsync();
+                _id = NewCounter.Id;
+                
+            }
+
+            _savedId = _id;
+        }
+        catch (Exception e)
+        {
+            _loadState = LoadState.Error;
+            _errorMessage = e.ToString();
+        }
+    }
+
+    private bool PreliminaryChecks()
+    {
+        if (_id <= 0)
+        {
+            _errorMessage = "Id must be larger than 0";
+            _loadState = LoadState.Error;
+            return false;
+        }
+
+        return true;
+    }
+    
+    public class Notification
+    {
+        public string? NotificationTitle { get; set; }
+        public string? NotificationDescription { get; set; }
+        public DateTime TimeCreated { get; set; }
+        public string? StyleClass { get; set; }
+
+        public Notification(string? notificationTitle, string? notificationDescription, string? styleClass)
+        {
+            NotificationTitle = notificationTitle;
+            NotificationDescription = notificationDescription;
+            TimeCreated = DateTime.Now;
+            StyleClass = styleClass;
+        }
+    }
+
+    private List<Notification> _notifications = [];
+
+    private void New10ClickNotification() => _notifications.Add(new Notification("Another Ten Clicks!", _notificationQuotes[_rand.Next(20)], "fadeInClass")); 
+    
+    private void _removeNotification(int i) => _notifications.RemoveAt(i);
+
+    private void FadeOutOldNotifications()
+    {
+        var now = DateTime.Now;
+        var notificationToRemove = _notifications.Find(notification => (now - notification.TimeCreated).TotalSeconds >= 5);
+        if (notificationToRemove != null) notificationToRemove.StyleClass = "fadeOutClass";
+        RemoveOldNotifications();
+    }
+
+    private async void RemoveOldNotifications()
+    {
+        if (_notifications.Count <= 0) {return;}
+        var now = DateTime.Now;
+        await Task.Delay(700);
+        try
+        {
+            if ((now - _notifications[0].TimeCreated).TotalSeconds >= 5){_notifications.RemoveAt(0);}
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+        //_notifications.RemoveAll(notification => (now - notification.TimeCreated).TotalSeconds >= 5);
+    }
+}
