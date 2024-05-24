@@ -4021,11 +4021,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\james\\RiderProjects\\ComDatabase\\LearningBlazor\\LearningBlazor\\LearningBlazor.csproj",
+      "projectUniqueName": "C:\\Users\\james\\RiderProjects\\Learning-Blazor\\LearningBlazor\\LearningBlazor.csproj",
       "projectName": "LearningBlazor",
-      "projectPath": "C:\\Users\\james\\RiderProjects\\ComDatabase\\LearningBlazor\\LearningBlazor\\LearningBlazor.csproj",
+      "projectPath": "C:\\Users\\james\\RiderProjects\\Learning-Blazor\\LearningBlazor\\LearningBlazor.csproj",
       "packagesPath": "C:\\Users\\james\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\james\\RiderProjects\\ComDatabase\\LearningBlazor\\LearningBlazor\\obj\\",
+      "outputPath": "C:\\Users\\james\\RiderProjects\\Learning-Blazor\\LearningBlazor\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\james\\AppData\\Roaming\\NuGet\\NuGet.Config"

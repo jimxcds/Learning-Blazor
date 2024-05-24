@@ -1,23 +1,23 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\james\\RiderProjects\\ComDatabase\\LearningBlazor\\LearningBlazor\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\LearningBlazor.bundle.scp.css",
+      "Id": "C:\\Users\\james\\RiderProjects\\Learning-Blazor\\LearningBlazor\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\LearningBlazor.bundle.scp.css",
       "PackagePath": "staticwebassets\\LearningBlazor.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\james\\RiderProjects\\ComDatabase\\LearningBlazor\\LearningBlazor\\wwwroot\\LearnBlazor.styles.css",
+      "Id": "C:\\Users\\james\\RiderProjects\\Learning-Blazor\\LearningBlazor\\wwwroot\\LearnBlazor.styles.css",
       "PackagePath": "staticwebassets\\LearnBlazor.styles.css"
     },
     {
-      "Id": "C:\\Users\\james\\RiderProjects\\ComDatabase\\LearningBlazor\\LearningBlazor\\wwwroot\\app.css",
+      "Id": "C:\\Users\\james\\RiderProjects\\Learning-Blazor\\LearningBlazor\\wwwroot\\app.css",
       "PackagePath": "staticwebassets\\app.css"
     },
     {
-      "Id": "C:\\Users\\james\\RiderProjects\\ComDatabase\\LearningBlazor\\LearningBlazor\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\Users\\james\\RiderProjects\\Learning-Blazor\\LearningBlazor\\wwwroot\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\james\\RiderProjects\\ComDatabase\\LearningBlazor\\LearningBlazor\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\james\\RiderProjects\\Learning-Blazor\\LearningBlazor\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
     },
     {

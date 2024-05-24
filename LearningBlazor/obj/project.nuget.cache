@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rECt1YzDeE/UxS2jx37cPIhEqVvnAts+ZRBNaAAbcyb0QswW+Abe3V1udGsTYRyjlBlxLkYvFKSw/LIkdDZxeQ==",
+  "dgSpecHash": "/bwipfDOwPbeD7SaGgb499XzO5hPSzwVQDx2gMQiGTK+F//A2Cd6HICPHtniGo5SSh085qBSA+XTLT4Du6dmBQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\james\\RiderProjects\\ComDatabase\\LearningBlazor\\LearningBlazor\\LearningBlazor.csproj",
+  "projectFilePath": "C:\\Users\\james\\RiderProjects\\Learning-Blazor\\LearningBlazor\\LearningBlazor.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\james\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\james\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

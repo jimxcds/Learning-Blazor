@@ -19,20 +19,39 @@
             </div>
 
             <div class="separating-container">
-                    <label @for="operators">Choose an Operator:</label>
-                    <div class="selectWrapper">
-                        <select class="selectBox" id="operators" name="operators" @bind="_selectedOperator">
-                            <option value="+">Addition</option>
-                            <option value="-">Subtraction</option>
-                            <option value="×">Multiplication</option>
-                            <option value="÷">Division</option>
-                        </select>
-                    </div>
+                <label @for="operators">Choose an Operator:</label>
+                <div class="selectWrapper">
+                    <select class="selectBox" id="operators" name="operators" @bind="_selectedOperator">
+                        <option value="+">Addition</option>
+                        <option value="-">Subtraction</option>
+                        <option value="×">Multiplication</option>
+                        <option value="÷">Division</option>
+                    </select>
+                </div>
             </div>
 
             <div class="separating-container">
                 <button @onclick="CompleteOperation">Calculate</button>
             </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="center-container container">
+        <div class="separating-container">
+            <h3>Temp converter</h3>
+        </div>
+        <div class="content-wrapper">
+            <div class="separating-container">
+                <p>°F</p>
+                <input type="number" @onkeydown="KeyboardEvenHandler" @bind="@_fahrenheit"/><p>=</p>
+                <p>°C</p>
+                <input type="number" @onkeydown="KeyboardEvenHandler" @bind="@_celsius"/>
+            </div>
+        </div>
+        <div class="separating-container">
+            <button @onclick="CTempOperation">To C</button>
+            <button @onclick="FTempOperation">To F</button>
         </div>
     </div>
 </div>
@@ -43,6 +62,9 @@
     private decimal _sum2;
     private decimal _answer;
     private string _selectedOperator = "";
+
+    private decimal _fahrenheit;
+    private decimal _celsius;
 
     private void KeyboardEvenHandler(KeyboardEventArgs args)
     {
@@ -77,5 +99,15 @@
             _answer = 0;
             CalLogger.LogError(mathError.ToString());
         }
+    }
+
+    private void CTempOperation()
+    {
+      _celsius = (_fahrenheit - 32) * 5/9;
+    }
+
+    private void FTempOperation()
+    {
+        _fahrenheit = (_celsius * 5/9) + 32;
     }
 }
