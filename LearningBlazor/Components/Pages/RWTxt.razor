@@ -1,0 +1,59 @@
+﻿@page "/RWTxt"
+@using System.Text
+@rendermode InteractiveServer
+@inject ILogger<Calculator> CalLogger
+
+<PageTitle>RWTxt</PageTitle>
+
+<h3>RWTxt</h3>
+<textarea type="text" name="Text1" cols="100" rows="10" @bind="_textEdit"></textarea>
+<div class="separating-container">
+    <button @onclick="_textRead">Read</button>
+    <button @onclick="_textWrite">Write</button>
+</div>
+
+@code 
+{
+    private string? _textEdit = "";
+    
+    protected override async Task OnInitializedAsync()
+    {
+        var reader = new StreamReader(@"C:\Users\james\RiderProjects\Learning-Blazor\LearningBlazor\wwwroot\testRead.txt");
+        var textRead = await reader.ReadToEndAsync();
+        CalLogger.LogInformation(textRead);
+        _textEdit = textRead;
+    }
+
+    private async Task _textRead()
+    {
+        await using var fs = new FileStream(@"C:\Users\james\Downloads\testing.txt", FileMode.Open, FileAccess.Read, FileShare.Read);
+        using var sr = new StreamReader(fs, Encoding.Default);
+        var textRead = await sr.ReadToEndAsync();
+        _textEdit = textRead;
+        sr.Close();
+        fs.Close();
+    }
+
+    private async Task _textWrite()
+    {
+        const string filePath = @"C:\Users\james\Downloads\testing.txt";
+        await File.WriteAllTextAsync(filePath, string.Empty);
+        File.Create(filePath).Close();
+        await using var fs = new FileStream(filePath, FileMode.Open, FileAccess.Write, FileShare.Write);
+        await using var sw = new StreamWriter(fs, Encoding.Default);
+        
+        await sw.WriteLineAsync(_textEdit);
+        
+        sw.Close();
+        fs.Close();
+    }
+    
+    
+    // private async Task LoadFiles(InputFileChangeEventArgs e)
+    // {
+    //     string path = @"C:\Users\james\RiderProjects\Learning-Blazor\LearningBlazor\Data";
+    //     await using FileStream fs = new(path, FileMode.Create);
+    //     Microsoft.AspNetCore.Components.Forms.IBrowserFile browserFile = null;
+    //     await browserFile.OpenReadStream().CopyToAsync(fs);
+    // }
+}

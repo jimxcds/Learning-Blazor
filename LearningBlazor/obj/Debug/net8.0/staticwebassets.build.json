@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "sCf7qt8jtICQEAXj4I1/7CR8cxtWP/JUHSY88Ie8GQo=",
+  "Hash": "vsLALDOXuzD2gw1lo35VGd4vzhCHiNfVir1U8MSK4ig=",
   "Source": "LearningBlazor",
   "BasePath": "_content/LearningBlazor",
   "Mode": "Default",
@@ -129,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\LearnBlazor.styles.css"
+    },
+    {
+      "Identity": "C:\\Users\\james\\RiderProjects\\Learning-Blazor\\LearningBlazor\\wwwroot\\testRead.txt",
+      "SourceId": "LearningBlazor",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\james\\RiderProjects\\Learning-Blazor\\LearningBlazor\\wwwroot\\",
+      "BasePath": "_content/LearningBlazor",
+      "RelativePath": "testRead.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\testRead.txt"
     }
   ]
 }

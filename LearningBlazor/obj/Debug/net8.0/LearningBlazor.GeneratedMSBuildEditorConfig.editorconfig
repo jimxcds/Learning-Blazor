@@ -57,3 +57,7 @@ build_metadata.AdditionalFiles.CssScope = b-dtit765ksb
 [C:/Users/james/RiderProjects/Learning-Blazor/LearningBlazor/Components/Pages/MagicEightBall.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNYWdpY0VpZ2h0QmFsbC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-d2fqj8rws4
+
+[C:/Users/james/RiderProjects/Learning-Blazor/LearningBlazor/Components/Pages/RWTxt.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSV1R4dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-fipwsex5m7

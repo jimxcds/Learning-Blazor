@@ -273,3 +273,4 @@ C:\Users\james\RiderProjects\Learning-Blazor\LearningBlazor\obj\Debug\net8.0\ref
 C:\Users\james\RiderProjects\Learning-Blazor\LearningBlazor\obj\Debug\net8.0\LearningBlazor.pdb
 C:\Users\james\RiderProjects\Learning-Blazor\LearningBlazor\obj\Debug\net8.0\LearningBlazor.genruntimeconfig.cache
 C:\Users\james\RiderProjects\Learning-Blazor\LearningBlazor\obj\Debug\net8.0\ref\LearningBlazor.dll
+C:\Users\james\RiderProjects\Learning-Blazor\LearningBlazor\obj\Debug\net8.0\scopedcss\Components\Pages\RWTxt.razor.rz.scp.css
